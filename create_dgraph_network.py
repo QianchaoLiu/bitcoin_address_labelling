@@ -2,12 +2,13 @@ import pydgraph
 import json
 import datetime
 
-class Labeling_Address()
-    def __init__(self, dgrpah_server, bitcoin_rawdata_path):
-        client_stub = pydgraph.DgraphClientStub('localhost:9080')
+class Labeling_Address():
+    def __init__(self, dgrpah_server, bitcoin_rawdata_path, target_block):
+        client_stub = pydgraph.DgraphClientStub(dgrpah_server)
         self.client = pydgraph.DgraphClient(client_stub)
         self.bitcoin_rawdata_path = bitcoin_rawdata_path
         self.startclock = datetime.datetime.now()
+        self.target_block = target_block
         
     def clear_all_data(self):
         op = pydgraph.Operation(drop_all=True)
@@ -121,6 +122,8 @@ class Labeling_Address()
                 output_hash = ','.join(output_row.split(',')[:2])
             info.append([inputs, outputs])
 
-    def start_parse(self):
+    def start(self):
+        self.clear_all_data()
         self.create_schema()
-        self.insert_graph()
+        self.insert_graph(self.target_block)
+        
