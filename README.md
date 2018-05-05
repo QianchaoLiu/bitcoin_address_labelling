@@ -37,11 +37,13 @@ The visualization result is:
 
 Using raw data that already labelled the ownership of public bitcoin address, given any bitcoin address, we can see which addresses have relationship with target address.
 
-Demo of research result is enclosed for bitcoin address `16bk4PdZfN2aMK4RvCTEipfUXjuevzGdVG`
+Demo of search result is enclosed for bitcoin address `16bk4PdZfN2aMK4RvCTEipfUXjuevzGdVG`.
+
+Related code is not uploaded to github. if you are interested, please contact to me for further discussion.
 
 ```json
 layer 1 :
-No related infomation
+No related information
 layer 2 :
 address type is Exchange and belongs to  Poloniex.com
 address type is Exchange and belongs to  Bitstamp.net
